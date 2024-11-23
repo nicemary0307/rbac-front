@@ -12,7 +12,7 @@ const RoleManagement = () => {
   const navigate = useNavigate();
 
   const fetchRoles = async () => {
-    const response = await axios.get("http://localhost:5000/roles");
+    const response = await axios.get("https://rbac-backend-513o.onrender.com/roles");
     setRoles(response.data);
   };
 
@@ -25,11 +25,11 @@ const RoleManagement = () => {
 
     if (editMode) {
       await axios.put(
-        `http://localhost:5000/roles/${currentRole._id}`,
+        `https://rbac-backend-513o.onrender.com/roles/${currentRole._id}`,
         currentRole
       );
     } else {
-      await axios.post("http://localhost:5000/roles", currentRole);
+      await axios.post("https://rbac-backend-513o.onrender.com/roles", currentRole);
     }
 
     fetchRoles();
@@ -44,7 +44,7 @@ const RoleManagement = () => {
   };
 
   const handleDelete = async (id) => {
-    await axios.delete(`http://localhost:5000/roles/${id}`);
+    await axios.delete(`https://rbac-backend-513o.onrender.com/roles/${id}`);
     fetchRoles();
   };
 

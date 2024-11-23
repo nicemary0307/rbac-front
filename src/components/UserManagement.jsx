@@ -19,7 +19,7 @@ const UserManagement = () => {
   const navigate = useNavigate();
  
   const fetchUsers = async () => {
-    const response = await axios.get("http://localhost:5000/users");
+    const response = await axios.get("https://rbac-backend-513o.onrender.com/users");
     setUsers(response.data);
   };
 
@@ -33,12 +33,12 @@ const UserManagement = () => {
     if (editMode) {
       
       await axios.put(
-        `http://localhost:5000/users/${currentUser._id}`,
+        `https://rbac-backend-513o.onrender.com/users/${currentUser._id}`,
         currentUser
       );
     } else {
       
-      await axios.post("http://localhost:5000/users", currentUser);
+      await axios.post("https://rbac-backend-513o.onrender.com/users", currentUser);
     }
 
     fetchUsers();
@@ -53,7 +53,7 @@ const UserManagement = () => {
   };
 
   const handleDelete = async (id) => {
-    await axios.delete(`http://localhost:5000/users/${id}`);
+    await axios.delete(`https://rbac-backend-513o.onrender.com/users/${id}`);
     fetchUsers();
   };
 
